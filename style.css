@@ -304,6 +304,7 @@ ul {
   position: absolute;
   inset: 0;
   background-image: url('images/hero-bg.png');
+  background-size: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -318,14 +319,6 @@ ul {
 }
 
 /* Decorative rotating rings */
-.hero-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(201,162,39,0.15);
-  z-index: 2;
-  animation: spinRing 20s linear infinite;
-  pointer-events: none;
-}
 
 .hero-ring--tl {
   width: 180px;
@@ -764,40 +757,23 @@ ul {
   transition: transform 0.7s var(--ease);
 }
 
-.gallery-item:hover img { transform: scale(1.12); }
+/* Image Zoom on Hover */
+.gallery-item:hover img {
+  transform: scale(1.12);
+}
 
+/* Dark Overlay */
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.60);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
 
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-
-.gallery-dot-ring {
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(1rem);
-  transition: transform 0.3s 0.1s var(--ease);
-}
-
-.gallery-item:hover .gallery-dot-ring { transform: translateY(0); }
-
-.gallery-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  background: var(--gold);
-  border-radius: 50%;
+/* Show Overlay on Hover */
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
 }
 
 .gallery-footer {
@@ -817,7 +793,9 @@ ul {
   transition: color 0.2s;
 }
 
-.gallery-more:hover { color: var(--gold); }
+.gallery-more:hover {
+  color: var(--gold);
+}
 
 .gallery-line {
   display: inline-block;
